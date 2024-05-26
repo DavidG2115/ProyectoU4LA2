@@ -1,4 +1,3 @@
-// $ANTLR 3.5.2 T.g 2024-04-28 14:57:26
 package proyectounidad2;
 
     import java.util.ArrayList;
@@ -47,7 +46,6 @@ public class TParser extends Parser {
             salidasql=_salidasql;
         }
 
-
 	public TParser(TokenStream input) {
 		this(input, new RecognizerSharedState());
 	}
@@ -69,15 +67,17 @@ public class TParser extends Parser {
 	    List<Tabla> tablas = new ArrayList<>();
 	    Tabla tablaActual = null;
 	    String nombreLlaveForanea; // Declaración de la variable como atributo
+	    String nombreBaseDeDatosActual;
+
 
 
 
 	// $ANTLR start "inicio"
-	// T.g:22:1: inicio : creacion utilizar ( tabla )+ terminar ;
+	// T.g:24:1: inicio : creacion utilizar ( tabla )+ terminar ;
 	public final void inicio() throws RecognitionException {
 		try {
-			// T.g:22:8: ( creacion utilizar ( tabla )+ terminar )
-			// T.g:22:10: creacion utilizar ( tabla )+ terminar
+			// T.g:24:8: ( creacion utilizar ( tabla )+ terminar )
+			// T.g:24:10: creacion utilizar ( tabla )+ terminar
 			{
 			pushFollow(FOLLOW_creacion_in_inicio23);
 			creacion();
@@ -87,7 +87,7 @@ public class TParser extends Parser {
 			utilizar();
 			state._fsp--;
 
-			// T.g:22:28: ( tabla )+
+			// T.g:24:28: ( tabla )+
 			int cnt1=0;
 			loop1:
 			while (true) {
@@ -99,7 +99,7 @@ public class TParser extends Parser {
 
 				switch (alt1) {
 				case 1 :
-					// T.g:22:28: tabla
+					// T.g:24:28: tabla
 					{
 					pushFollow(FOLLOW_tabla_in_inicio27);
 					tabla();
@@ -136,13 +136,13 @@ public class TParser extends Parser {
 
 
 	// $ANTLR start "creacion"
-	// T.g:24:1: creacion : CREAR idDB ;
+	// T.g:26:1: creacion : CREAR idDB ;
 	public final void creacion() throws RecognitionException {
 		ParserRuleReturnScope idDB1 =null;
 
 		try {
-			// T.g:24:10: ( CREAR idDB )
-			// T.g:24:12: CREAR idDB
+			// T.g:26:10: ( CREAR idDB )
+			// T.g:26:12: CREAR idDB
 			{
 			match(input,CREAR,FOLLOW_CREAR_in_creacion38); 
 			pushFollow(FOLLOW_idDB_in_creacion40);
@@ -150,7 +150,7 @@ public class TParser extends Parser {
 			state._fsp--;
 
 
-			    salidasql.append("CREATE DATABASE " + (idDB1!=null?input.toString(idDB1.start,idDB1.stop):null) + ";\n");
+			    salidasql.append("CREATE DATABASE " + (idDB1!=null?input.toString(idDB1.start,idDB1.stop):null) + ";" +"\n");
 
 			}
 
@@ -168,13 +168,13 @@ public class TParser extends Parser {
 
 
 	// $ANTLR start "utilizar"
-	// T.g:28:1: utilizar : UTILIZAR idDB ;
+	// T.g:30:1: utilizar : UTILIZAR idDB ;
 	public final void utilizar() throws RecognitionException {
 		ParserRuleReturnScope idDB2 =null;
 
 		try {
-			// T.g:28:10: ( UTILIZAR idDB )
-			// T.g:28:12: UTILIZAR idDB
+			// T.g:30:10: ( UTILIZAR idDB )
+			// T.g:30:12: UTILIZAR idDB
 			{
 			match(input,UTILIZAR,FOLLOW_UTILIZAR_in_utilizar50); 
 			pushFollow(FOLLOW_idDB_in_utilizar52);
@@ -182,7 +182,8 @@ public class TParser extends Parser {
 			state._fsp--;
 
 
-			    salidasql.append("USE " + (idDB2!=null?input.toString(idDB2.start,idDB2.stop):null) + ";\n");
+			    nombreBaseDeDatosActual = (idDB2!=null?input.toString(idDB2.start,idDB2.stop):null);
+			    salidasql.append("USE " + (idDB2!=null?input.toString(idDB2.start,idDB2.stop):null) + ";" +"\n");
 
 			}
 
@@ -200,13 +201,13 @@ public class TParser extends Parser {
 
 
 	// $ANTLR start "tabla"
-	// T.g:32:1: tabla : TABLA idTabla INICIO ( campo )+ ( llavefor )? FIN ;
+	// T.g:35:1: tabla : TABLA idTabla INICIO ( campo )+ ( llavefor )? FIN ;
 	public final void tabla() throws RecognitionException {
 		ParserRuleReturnScope idTabla3 =null;
 
 		try {
-			// T.g:32:7: ( TABLA idTabla INICIO ( campo )+ ( llavefor )? FIN )
-			// T.g:32:9: TABLA idTabla INICIO ( campo )+ ( llavefor )? FIN
+			// T.g:35:7: ( TABLA idTabla INICIO ( campo )+ ( llavefor )? FIN )
+			// T.g:35:9: TABLA idTabla INICIO ( campo )+ ( llavefor )? FIN
 			{
 			match(input,TABLA,FOLLOW_TABLA_in_tabla62); 
 			pushFollow(FOLLOW_idTabla_in_tabla64);
@@ -222,7 +223,7 @@ public class TParser extends Parser {
 			    tablas.add(t);
 			    tablaActual = t;
 
-			// T.g:39:3: ( campo )+
+			// T.g:42:3: ( campo )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -234,7 +235,7 @@ public class TParser extends Parser {
 
 				switch (alt2) {
 				case 1 :
-					// T.g:39:3: campo
+					// T.g:42:3: campo
 					{
 					pushFollow(FOLLOW_campo_in_tabla70);
 					campo();
@@ -251,7 +252,7 @@ public class TParser extends Parser {
 				cnt2++;
 			}
 
-			// T.g:39:10: ( llavefor )?
+			// T.g:42:10: ( llavefor )?
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0==LLAVE_FORANEA) ) {
@@ -259,7 +260,7 @@ public class TParser extends Parser {
 			}
 			switch (alt3) {
 				case 1 :
-					// T.g:39:11: llavefor
+					// T.g:42:11: llavefor
 					{
 					pushFollow(FOLLOW_llavefor_in_tabla74);
 					llavefor();
@@ -290,17 +291,17 @@ public class TParser extends Parser {
 
 
 	// $ANTLR start "campo"
-	// T.g:43:1: campo : ID (t= CANTIDAD |t= ALFABETO |t= FECHA ) ;
+	// T.g:46:1: campo : ID (t= CANTIDAD |t= ALFABETO |t= FECHA ) ;
 	public final void campo() throws RecognitionException {
 		Token t=null;
 		Token ID4=null;
 
 		try {
-			// T.g:43:7: ( ID (t= CANTIDAD |t= ALFABETO |t= FECHA ) )
-			// T.g:43:9: ID (t= CANTIDAD |t= ALFABETO |t= FECHA )
+			// T.g:46:7: ( ID (t= CANTIDAD |t= ALFABETO |t= FECHA ) )
+			// T.g:46:9: ID (t= CANTIDAD |t= ALFABETO |t= FECHA )
 			{
 			ID4=(Token)match(input,ID,FOLLOW_ID_in_campo88); 
-			// T.g:43:12: (t= CANTIDAD |t= ALFABETO |t= FECHA )
+			// T.g:46:12: (t= CANTIDAD |t= ALFABETO |t= FECHA )
 			int alt4=3;
 			switch ( input.LA(1) ) {
 			case CANTIDAD:
@@ -325,19 +326,19 @@ public class TParser extends Parser {
 			}
 			switch (alt4) {
 				case 1 :
-					// T.g:43:13: t= CANTIDAD
+					// T.g:46:13: t= CANTIDAD
 					{
 					t=(Token)match(input,CANTIDAD,FOLLOW_CANTIDAD_in_campo93); 
 					}
 					break;
 				case 2 :
-					// T.g:43:26: t= ALFABETO
+					// T.g:46:26: t= ALFABETO
 					{
 					t=(Token)match(input,ALFABETO,FOLLOW_ALFABETO_in_campo99); 
 					}
 					break;
 				case 3 :
-					// T.g:43:39: t= FECHA
+					// T.g:46:39: t= FECHA
 					{
 					t=(Token)match(input,FECHA,FOLLOW_FECHA_in_campo105); 
 					}
@@ -359,7 +360,7 @@ public class TParser extends Parser {
 			    }
 
 			    if (!tipoSQL.isEmpty()) {
-			        salidasql.append(", " + (ID4!=null?ID4.getText():null) + " " + tipoSQL);
+			        salidasql.append(", " + (ID4!=null?ID4.getText():null) + " " + tipoSQL +"\n");
 			        Atributo a = new Atributo();
 			        a.nombreAtributo = (ID4!=null?ID4.getText():null);
 			        a.tipoAtributo = (t!=null?t.getText():null);
@@ -383,14 +384,14 @@ public class TParser extends Parser {
 
 
 	// $ANTLR start "llavefor"
-	// T.g:66:1: llavefor : LLAVE_FORANEA ID REFERENCIA idTabla ;
+	// T.g:69:1: llavefor : LLAVE_FORANEA ID REFERENCIA idTabla ;
 	public final void llavefor() throws RecognitionException {
 		Token ID5=null;
 		ParserRuleReturnScope idTabla6 =null;
 
 		try {
-			// T.g:66:10: ( LLAVE_FORANEA ID REFERENCIA idTabla )
-			// T.g:66:12: LLAVE_FORANEA ID REFERENCIA idTabla
+			// T.g:69:10: ( LLAVE_FORANEA ID REFERENCIA idTabla )
+			// T.g:69:12: LLAVE_FORANEA ID REFERENCIA idTabla
 			{
 			match(input,LLAVE_FORANEA,FOLLOW_LLAVE_FORANEA_in_llavefor116); 
 			ID5=(Token)match(input,ID,FOLLOW_ID_in_llavefor118); 
@@ -401,7 +402,7 @@ public class TParser extends Parser {
 
 
 			    nombreLlaveForanea = (ID5!=null?ID5.getText():null); // Asignación del valor
-			    salidasql.append(", FOREIGN KEY (" + nombreLlaveForanea + ") REFERENCES " + (idTabla6!=null?input.toString(idTabla6.start,idTabla6.stop):null) + "(" + (idTabla6!=null?input.toString(idTabla6.start,idTabla6.stop):null) + "_key)");
+			    salidasql.append(", FOREIGN KEY (" + nombreLlaveForanea + ") REFERENCES " + (idTabla6!=null?input.toString(idTabla6.start,idTabla6.stop):null) + "(" + (idTabla6!=null?input.toString(idTabla6.start,idTabla6.stop):null) + "_key)" +"\n");
 
 			}
 
@@ -419,27 +420,20 @@ public class TParser extends Parser {
 
 
 	// $ANTLR start "terminar"
-	// T.g:71:1: terminar : TERMINAR ;
+	// T.g:74:1: terminar : TERMINAR ;
 	public final void terminar() throws RecognitionException {
 		try {
-			// T.g:71:10: ( TERMINAR )
-			// T.g:71:12: TERMINAR
+			// T.g:74:10: ( TERMINAR )
+			// T.g:74:12: TERMINAR
 			{
 			match(input,TERMINAR,FOLLOW_TERMINAR_in_terminar132); 
 
+			    salida.append("Base de datos actual: " + nombreBaseDeDatosActual +"\n");
 			    for (Tabla tabla : tablas) {
-			        salida.append("\nTabla: " + tabla.nombre + "\n");
-			        salida.append("------------------------------\n");
-			        salida.append("| Atributo | Tipo |\n");
-			        salida.append("------------------------------\n");
+			        salida.append("Nombre de la tabla: " + tabla.nombre +"\n");
 			        for (Atributo atributo : tabla.atributos) {
-			            salida.append("| " + atributo.nombreAtributo + " | " + atributo.tipoSQL + " |\n");
-			            if (atributo.nombreAtributo.equals(nombreLlaveForanea)) { // Comparación de valores
-			                salida.append("Llave foranea: " + atributo.nombreAtributo +"  |\n");
-			            }
-			            
+			            salida.append("Atributo: " + atributo.nombreAtributo + " Tipo de Atributo: " + atributo.tipoSQL +"\n");
 			        }
-			        salida.append("------------------------------\n");
 			    }
 
 			}
@@ -461,14 +455,14 @@ public class TParser extends Parser {
 
 
 	// $ANTLR start "idDB"
-	// T.g:102:1: idDB : ID ;
+	// T.g:98:1: idDB : ID ;
 	public final TParser.idDB_return idDB() throws RecognitionException {
 		TParser.idDB_return retval = new TParser.idDB_return();
 		retval.start = input.LT(1);
 
 		try {
-			// T.g:102:6: ( ID )
-			// T.g:102:8: ID
+			// T.g:98:6: ( ID )
+			// T.g:98:8: ID
 			{
 			match(input,ID,FOLLOW_ID_in_idDB265); 
 			}
@@ -493,14 +487,14 @@ public class TParser extends Parser {
 
 
 	// $ANTLR start "idTabla"
-	// T.g:103:1: idTabla : ID ;
+	// T.g:99:1: idTabla : ID ;
 	public final TParser.idTabla_return idTabla() throws RecognitionException {
 		TParser.idTabla_return retval = new TParser.idTabla_return();
 		retval.start = input.LT(1);
 
 		try {
-			// T.g:103:9: ( ID )
-			// T.g:103:11: ID
+			// T.g:99:9: ( ID )
+			// T.g:99:11: ID
 			{
 			match(input,ID,FOLLOW_ID_in_idTabla272); 
 			}

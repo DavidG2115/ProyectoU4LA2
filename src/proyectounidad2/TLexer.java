@@ -44,8 +44,8 @@ public class TLexer extends Lexer {
 		try {
 			int _type = CREAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// T.g:90:7: ( 'crear' )
-			// T.g:90:9: 'crear'
+			// T.g:86:7: ( 'crear' )
+			// T.g:86:9: 'crear'
 			{
 			match("crear"); 
 
@@ -65,8 +65,8 @@ public class TLexer extends Lexer {
 		try {
 			int _type = UTILIZAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// T.g:91:10: ( 'utilizar' )
-			// T.g:91:12: 'utilizar'
+			// T.g:87:10: ( 'utilizar' )
+			// T.g:87:12: 'utilizar'
 			{
 			match("utilizar"); 
 
@@ -86,8 +86,8 @@ public class TLexer extends Lexer {
 		try {
 			int _type = TABLA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// T.g:92:7: ( 'tabla' )
-			// T.g:92:9: 'tabla'
+			// T.g:88:7: ( 'tabla' )
+			// T.g:88:9: 'tabla'
 			{
 			match("tabla"); 
 
@@ -107,8 +107,8 @@ public class TLexer extends Lexer {
 		try {
 			int _type = INICIO;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// T.g:93:8: ( 'inicio' )
-			// T.g:93:10: 'inicio'
+			// T.g:89:8: ( 'inicio' )
+			// T.g:89:10: 'inicio'
 			{
 			match("inicio"); 
 
@@ -128,8 +128,8 @@ public class TLexer extends Lexer {
 		try {
 			int _type = TERMINAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// T.g:94:10: ( 'terminar' )
-			// T.g:94:12: 'terminar'
+			// T.g:90:10: ( 'terminar' )
+			// T.g:90:12: 'terminar'
 			{
 			match("terminar"); 
 
@@ -149,8 +149,8 @@ public class TLexer extends Lexer {
 		try {
 			int _type = FIN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// T.g:95:5: ( 'fin' )
-			// T.g:95:7: 'fin'
+			// T.g:91:5: ( 'fin' )
+			// T.g:91:7: 'fin'
 			{
 			match("fin"); 
 
@@ -170,8 +170,8 @@ public class TLexer extends Lexer {
 		try {
 			int _type = LLAVE_FORANEA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// T.g:96:15: ( 'relacion' )
-			// T.g:96:17: 'relacion'
+			// T.g:92:15: ( 'relacion' )
+			// T.g:92:17: 'relacion'
 			{
 			match("relacion"); 
 
@@ -191,8 +191,8 @@ public class TLexer extends Lexer {
 		try {
 			int _type = REFERENCIA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// T.g:97:12: ( 'referencia' )
-			// T.g:97:14: 'referencia'
+			// T.g:93:12: ( 'referencia' )
+			// T.g:93:14: 'referencia'
 			{
 			match("referencia"); 
 
@@ -212,8 +212,8 @@ public class TLexer extends Lexer {
 		try {
 			int _type = CANTIDAD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// T.g:98:10: ( 'cantidad' )
-			// T.g:98:12: 'cantidad'
+			// T.g:94:10: ( 'cantidad' )
+			// T.g:94:12: 'cantidad'
 			{
 			match("cantidad"); 
 
@@ -233,8 +233,8 @@ public class TLexer extends Lexer {
 		try {
 			int _type = ALFABETO;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// T.g:99:10: ( 'alfabeto' )
-			// T.g:99:12: 'alfabeto'
+			// T.g:95:10: ( 'alfabeto' )
+			// T.g:95:12: 'alfabeto'
 			{
 			match("alfabeto"); 
 
@@ -254,8 +254,8 @@ public class TLexer extends Lexer {
 		try {
 			int _type = FECHA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// T.g:100:7: ( 'fecha' )
-			// T.g:100:9: 'fecha'
+			// T.g:96:7: ( 'fecha' )
+			// T.g:96:9: 'fecha'
 			{
 			match("fecha"); 
 
@@ -275,8 +275,8 @@ public class TLexer extends Lexer {
 		try {
 			int _type = ID;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// T.g:101:4: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-			// T.g:101:6: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+			// T.g:97:4: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+			// T.g:97:6: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -286,7 +286,7 @@ public class TLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// T.g:101:34: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+			// T.g:97:34: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
 			loop1:
 			while (true) {
 				int alt1=2;
@@ -331,10 +331,10 @@ public class TLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// T.g:104:4: ( ( ' ' | '\\n' | '\\t' | '\\r' )+ )
-			// T.g:104:6: ( ' ' | '\\n' | '\\t' | '\\r' )+
+			// T.g:100:4: ( ( ' ' | '\\n' | '\\t' | '\\r' )+ )
+			// T.g:100:6: ( ' ' | '\\n' | '\\t' | '\\r' )+
 			{
-			// T.g:104:6: ( ' ' | '\\n' | '\\t' | '\\r' )+
+			// T.g:100:6: ( ' ' | '\\n' | '\\t' | '\\r' )+
 			int cnt2=0;
 			loop2:
 			while (true) {
